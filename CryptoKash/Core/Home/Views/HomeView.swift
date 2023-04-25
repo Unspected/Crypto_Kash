@@ -17,45 +17,50 @@ struct HomeView: View {
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
     
+    @AppStorage("onBoarding") var onBoardingWasViewed: Bool = false
+    
     var body: some View {
         ZStack {
-            // background layer
-            Color.theme.background
-                .ignoresSafeArea()
-            
-                .sheet(isPresented: $showPortfolioView, content: {
-                    PortfolioView()
-                        .environmentObject(vm)
-                })
-            // content layer
-            VStack {
-                // Header
-                homeHeader
-                HomeStatsView(showPortfolio: $showPortfolio)
-                // SearchField
-                SearchBarView(searchText: $vm.searchText)
-                // titles
-                columnTitles
-                
-                if !showPortfolio {
-                    allCoinsList
-                        .transition(.move(edge: .leading))
-                }
-                if showPortfolio {
-                    ZStack(alignment:.top) {
-                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
-                           portfolioTextEmpty
-                        } else {
-                            portfolioCoinsList
-                        }
+            if !onBoardingWasViewed {
+                OnBoardingView()
+            } else {
+                // background layer
+                Color.theme.background
+                    .ignoresSafeArea()
+                    .sheet(isPresented: $showPortfolioView, content: {
+                        PortfolioView()
+                            .environmentObject(vm)
+                    })
+                // content layer
+                VStack {
+                    // Header
+                    homeHeader
+                    HomeStatsView(showPortfolio: $showPortfolio)
+                    // SearchField
+                    SearchBarView(searchText: $vm.searchText)
+                    // titles
+                    columnTitles
+                    
+                    if !showPortfolio {
+                        allCoinsList
+                            .transition(.move(edge: .leading))
                     }
-                    .transition(.move(edge: .trailing))
+                    if showPortfolio {
+                        ZStack(alignment:.top) {
+                            if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                                portfolioTextEmpty
+                            } else {
+                                portfolioCoinsList
+                            }
+                        }
+                        .transition(.move(edge: .trailing))
+                    }
+                    
+                    Spacer(minLength: 0)
                 }
-                
-                Spacer(minLength: 0)
-            }
-            .sheet(isPresented: $showSettingsView) {
-                SettingsView()
+                .sheet(isPresented: $showSettingsView) {
+                    SettingsView()
+                }
             }
         }
         .background(

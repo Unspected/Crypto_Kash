@@ -30,10 +30,10 @@ struct SettingsView: View {
                         .listRowBackground(Color.theme.background.opacity(0.1))
                     coinGeckoSection
                         .listRowBackground(Color.theme.background.opacity(0.1))
-                    developerSection
-                        .listRowBackground(Color.theme.background.opacity(0.1))
-                    applicationSection
-                        .listRowBackground(Color.theme.background.opacity(0.1))
+//                    developerSection
+//                        .listRowBackground(Color.theme.background.opacity(0.1))
+//                    applicationSection
+//                        .listRowBackground(Color.theme.background.opacity(0.1))
                 }
             }
             .font(.headline)
@@ -58,13 +58,13 @@ struct SettingsView_Previews: PreviewProvider {
 extension SettingsView {
     
     private var aboutMeSection: some View {
-        Section(header: Text("About me")) {
+        Section(header: Text("About Application")) {
             VStack(alignment: .leading) {
                 Image("logo")
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                Text("This app was made by after complition course SwiftUI, It uses MVVM Architecheture, Combine and CoreData!")
+                Text("This application is made to view the cryptocurrency market, there is no access to purchase. But you can keep track of individual cryptocurrencies that are interesting to you by adding them to your portfolio.")
                     .foregroundColor(colorScheme == .light ? Color.black : Color.theme.white)
             }
             .padding()
