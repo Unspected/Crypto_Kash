@@ -10,6 +10,7 @@ import SwiftUI
 
 extension Color {
     
+    // Color 
     static let theme = ColorTheme()
     static let launch = LaunchTheme()
     
