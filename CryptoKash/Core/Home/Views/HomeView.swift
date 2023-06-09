@@ -19,6 +19,7 @@ struct HomeView: View {
     
     @AppStorage("onBoarding") var onBoardingWasViewed: Bool = false
     
+    // MARK: - new comment here
     var body: some View {
         ZStack {
             if !onBoardingWasViewed {
@@ -72,6 +73,8 @@ struct HomeView: View {
         }
     }
 }
+
+// MARK: - new Changes
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
