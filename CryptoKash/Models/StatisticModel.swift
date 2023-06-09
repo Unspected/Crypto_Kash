@@ -23,3 +23,5 @@ struct StatisticModel: Identifiable {
 
 let newModel = StatisticModel(title: "", value: "", percentageChange: nil)
 
+let newModel1 = StatisticModel(title: "", value: "", percentageChange: nil)
+
