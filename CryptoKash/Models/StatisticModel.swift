@@ -25,3 +25,5 @@ let newModel = StatisticModel(title: "", value: "", percentageChange: nil)
 
 let newModel1 = StatisticModel(title: "", value: "", percentageChange: nil)
 
+let newModel2 = StatisticModel(title: "", value: "", percentageChange: nil)
+
