@@ -19,6 +19,7 @@ struct HomeView: View {
     
     @AppStorage("onBoarding") var onBoardingWasViewed: Bool = false
     
+    // MARK: - new comment here
     var body: some View {
         ZStack {
             if !onBoardingWasViewed {
