@@ -74,6 +74,8 @@ struct HomeView: View {
     }
 }
 
+// MARK: - new Changes
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
